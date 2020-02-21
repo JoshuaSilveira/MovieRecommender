@@ -1,0 +1,33 @@
+﻿@model MovieRecommender.Models.ViewModels.ShowReviewer
+
+@{
+    ViewBag.Title = "Show";
+}
+
+<h2>Details for : @Model.Review.name</h2>
+
+<div>
+    Name:@Model.Review.name
+</div>
+
+
+<h2>Your Reviews</h2>
+@if (Model.Reviews.Count == 0 )
+{
+    <p>You dont have any reviews yet!</p>
+}
+@foreach (var Review in Model.Reviews)
+{
+<div class="row">
+    <span class="col-md-8">
+        <a href="/Review/Show/@Review.ReviewID">@Review.Movie.name</a>
+    </span>
+    <a class="btn btn-primary" href="/Review/Update/@Review.ReviewID">Edit this Review</a>
+    <a class="btn btn-danger" href="/Review/Delete/@Review.ReviewID">Delete this Review</a>
+    <hr>
+</div>
+}
+
+<a class="btn btn-success" href="/Review/Add/@Model.Review.ReviewerID">Review A Movie! @Model.Review.name</a>
+<a class="btn btn-default" href="/Reviewer/List">List of Reviewers</a>
+

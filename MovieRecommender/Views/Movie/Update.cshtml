@@ -1,0 +1,25 @@
+﻿@model MovieRecommender.Models.Movie
+
+@{
+    ViewBag.Title = "Update";
+}
+
+<h2>Update @Model.name</h2>
+<form method="post" action="/Movie/Update/@Model.MovieID">
+    <label for="name">Movie Name</label>
+    <div><input id="name" name="name" value="@Model.name" /></div>
+    
+    <label for="info">Movie Description</label>
+
+    <div><textarea id="info" name="info" cols="100">@Model.info</textarea></div>
+    
+    
+    @Html.HiddenFor(model => model.MovieID)
+    <!--This allows the HttpPost Update method in MovieController to access the id instead of it being passed as a seperate paramater-->
+    <hr />
+    <input type="submit" class="btn btn-primary" id="submit" value="submit" />
+
+
+</form>
+<a class="btn" href="/Movie/List">List of Movies</a>
+<a class="btn" href="/Movie/Delete/@Model.MovieID">Delete this Movie</a>

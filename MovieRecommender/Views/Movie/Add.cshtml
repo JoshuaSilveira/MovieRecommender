@@ -1,0 +1,23 @@
+﻿@model MovieRecommender.Models.Movie
+
+@{
+    ViewBag.Title = "Add";
+}
+
+<h2>Add a Movie</h2>
+
+<form method="post" action="/Movie/Add/@Model">
+    
+    @Html.LabelFor(model => model.name, "Movie Name")
+    <div>
+
+        @Html.EditorFor(model => model.name)
+    </div>
+    @Html.LabelFor(model => model.info, "Movie description/Info")
+    <div>
+
+        @Html.TextAreaFor(model => model.info, new { @class = "form-control form-control-full", rows = 8 })
+    </div>
+    <hr />
+    <input type="submit" id="submit" class="btn btn-primary" value="Add Movie" />
+</form>

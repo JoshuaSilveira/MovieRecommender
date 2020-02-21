@@ -1,0 +1,16 @@
+﻿@model MovieRecommender.Models.Review
+
+@{
+    ViewBag.Title = "Show";
+}
+
+<h1>Review of @Model.Movie.name by @Model.Reviewer.name</h1>
+
+<h2>Rating: @Model.rating</h2>
+
+
+<h3>Review: @Model.content</h3>
+<hr/>
+
+<a class="btn btn-primary" href="/Reviewer/Show/@Model.ReviewerID">Back to @Model.Reviewer.name's Page</a>
+

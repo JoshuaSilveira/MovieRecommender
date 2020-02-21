@@ -1,0 +1,18 @@
+﻿@model MovieRecommender.Models.Reviewer
+
+@{
+    ViewBag.Title = "Update";
+}
+
+<h2>Update @Model.name</h2>
+
+<form method="post" action="/Reviewer/Update/@Model.ReviewerID">
+    Name:<input id="name" name="name" value="@Model.name" />
+    @Html.HiddenFor(model => model.ReviewerID)
+    <!--This allows the HttpPost Update method in ReviewerController to access the id instead of it being passed as a seperate paramater-->
+    <input type="submit" class="btn btn-primary" id="submit" value="submit" />
+
+
+</form>
+<a class="btn" href="/Reviewer/List">List of Reviewers</a>
+<a class="btn" href="/Reviewer/Delete/@Model.ReviewerID">Delete this Reviewer</a>

@@ -1,0 +1,36 @@
+﻿@model MovieRecommender.Models.ViewModels.AddReview
+
+
+@{
+    ViewBag.Title = "Add";
+}
+
+<h2>Add a Review</h2>
+
+<form method="post" action="/Review/Add/@Model.review">
+
+    <div>
+        <div>
+            @Html.LabelFor(model => model.review.MovieID, "Select a Movie")
+                <span>
+
+                    @Html.DropDownListFor(model => model.review.MovieID, new SelectList(Model.movies, "MovieID", "name"));
+                </span>
+            </div>
+        <div>
+                @Html.LabelFor(model => model.review.content, "Thoughts on this Movie")
+                <div>@Html.TextAreaFor(model => model.review.content,new { @rows=10, @cols=50 })</div>
+        </div>
+        
+        <div>
+          
+                @Html.LabelFor(model => model.review.rating, "Rating")
+            <div>@Html.EditorFor(model => model.review.rating)</div>
+        </div>
+        
+        <input type="hidden" id="reviewerid" name="reviewerid" value="@Model.reviewerID"/>
+    </div>
+    <hr />
+    <input type="submit" class="btn btn-primary" id="submit" value="Add Review" />
+</form>
+

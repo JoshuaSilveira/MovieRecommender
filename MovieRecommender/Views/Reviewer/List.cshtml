@@ -1,0 +1,33 @@
+﻿@model List<MovieRecommender.Models.Reviewer>
+
+@{
+    ViewBag.Title = "List";
+}
+
+<h2>List of Reviewers</h2>
+<form action="/Reviewer/List" method="GET">
+    <input type="text" name="SearchText" id="SearchText" />
+    <input type="submit" value="Search" />
+</form>
+<div class="container-fluid">
+    <div class="row"><span class="col"><strong>Name</strong></span></div>
+
+    @foreach (var Reviewer in Model)
+    {
+<div class="row">
+    <hr />
+    <span class="col-md-4">
+        <a href="/Reviewer/Show/@Reviewer.ReviewerID">@Reviewer.name</a>
+    </span>
+    <span class="col-md-4">
+        <a class="btn btn-danger" href="/Reviewer/Update/@Reviewer.ReviewerID">Edit this Reviewer</a>
+    </span>
+    
+</div>
+    }
+</div>
+<hr />
+<a class="btn btn-primary" href="/Reviewer/Add">Add a Reviewer</a>
+
+
+

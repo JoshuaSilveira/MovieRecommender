@@ -1,0 +1,31 @@
+﻿@model List<MovieRecommender.Models.Movie>
+
+@{
+    ViewBag.Title = "List";
+}
+
+<h2>List of Movies</h2>
+<form action="/Movie/List" method="GET">
+    <input type="text" name="SearchText" id="SearchText" />
+    <input type="submit" value="Search" />
+</form>
+
+<div class="container-fluid">
+    <div class="row"><span class="col-md-2"><strong>ID</strong></span><span class="col-md-8"><strong>Movie Name</strong></span></div>
+
+    @foreach (var Movie in Model)
+    {
+        <div class="row">
+            <span class="col-md-2">
+                @Movie.MovieID
+            </span>
+            <span class="col-md-8">
+                <a href="/Movie/Show/@Movie.MovieID">@Movie.name</a>
+            </span>
+            <a class="btn" href="/Movie/Update/@Movie.MovieID">Edit this Movie</a>
+            <hr>
+        </div>
+    }
+</div>
+<a class="btn" href="/Movie/Add">Add a New Movie</a>
+

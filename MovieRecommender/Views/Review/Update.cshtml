@@ -1,0 +1,28 @@
+﻿@model MovieRecommender.Models.Review
+
+@{
+    ViewBag.Title = "Update";
+}
+
+<h2>Update Review for @Model.Movie.name by @Model.Reviewer.name</h2>
+<form method="post" action="/Review/Update/@Model.ReviewID">
+    <label for="content">Review:</label>
+    <div>
+        <textarea id="content" name="content" rows="6" cols="200">@Model.content</textarea>
+    </div>
+    <label for="rating">Rating:</label>
+    <div>
+        <input id="rating" type="number" name="rating" value="@Model.rating" />
+    </div>
+    <input id="reviwerid" type="hidden" name="reviewerid" value="@Model.ReviewerID" />
+    <input id="movieid" type="hidden" name="movieid" value="@Model.MovieID" />
+
+    <div><hr /><input type="submit" id="submit" value="Update Review" /></div>
+
+
+</form>
+
+
+
+
+

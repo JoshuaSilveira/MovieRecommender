@@ -1,0 +1,18 @@
+﻿@model MovieRecommender.Models.Reviewer
+
+@{
+    ViewBag.Title = "Add";
+}
+
+<h2>Add a Reviewer</h2>
+
+<form method="post" action="/Reviewer/Add/@Model">
+
+    <div>
+        <span>Name:</span>
+        @Html.EditorFor(model => model.name)
+
+    </div>
+    <input type="submit" id="submit" value="Add Reviewer" />
+</form>
+
